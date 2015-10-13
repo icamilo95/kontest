@@ -1,0 +1,9 @@
+<h1>Kontests#index</h1>
+<p>Find me in app/views/kontests/index.html.erb</p>
+
+<% @kontests.each do |kontest| %>
+   <p> Nombre: <%= link_to kontest.clientname, kontest_path(kontest) %> - 
+    Code: <%= kontest.clientcode %></p>
+<% end %>
+
+<%= link_to "Nuevo Kontest", new_kontest_path, :class => "btn btn-default" %>

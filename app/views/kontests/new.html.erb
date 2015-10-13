@@ -1,0 +1,25 @@
+<h1>Kontests#new</h1>
+<p>Find me in app/views/kontests/new.html.erb</p>
+
+<% if @kontest.errors.any? %>
+   <% @kontest.errors.full_messages.each do |error|%>
+   <p class="text-danger">
+      <%= error%>
+   </p>
+   <% end %>
+<% end %>
+
+<%= form_for @kontest do |f| %>
+   
+   <p><%= f.label :clientname, "Nombre del Cliente" %> <%= f.text_field :clientname %></p>
+   <p><%= f.label :clientcode, "Codigo del Cliente" %> <%= f.text_field :clientcode %></p>
+   <p><%= f.label :admin, "Creado por: " %> <%= f.text_field :admin %></p>
+   <p><%= f.label :amountwinners, "Cantidad de Ganadores" %> <%= f.text_field :amountwinners %></p>
+   <p><%= f.label :amountcodes, "Cantidad de Codigos" %> <%= f.text_field :amountcodes %></p>
+   <p><%= f.label :award, "Descripcion del Premio" %> <%= f.text_field :award %></p>
+   <p><%= f.label :startdate, "Fecha de Inicio" %> <%= f.date_select :startdate , {:order => [:day, :month, :year], :include_blank => true, :start_year => Date.current.year + 1, :end_year => 1920,:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,:class => "form-control", :style => "width:50px; display: inline;" %></p>
+   <p><%= f.label :enddate, "Fecha de Finalizacion" %> <%= f.date_select :enddate , {:order => [:day, :month, :year], :include_blank => true, :start_year => Date.current.year + 3, :end_year => 1920,:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,:class => "form-control", :style => "width:50px; display: inline;" %></p>
+
+   <p><%= f.submit "Crear", :class => "btn btn-primary" %> </p>
+   
+<% end %>

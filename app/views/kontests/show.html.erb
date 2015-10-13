@@ -1,0 +1,16 @@
+<h1>Kontests#show</h1>
+<p>Find me in app/views/kontests/show.html.erb</p>
+
+
+
+<p>Cliente: <%= @kontest.clientname %></p>
+<p>Codigo: <%= @kontest.clientcode %></p>
+<p>Creado por: <%= @kontest.admin %></p>
+<p>Cantidad de Ganadores: <%= @kontest.amountwinners %></p>
+<p>Cantidad de Codigos: <%= @kontest.amountcodes %></p>
+<p>Premio: <%= @kontest.award %></p>
+<p>Fecha de Inicio: <%= @kontest.startdate %></p>
+<p>Fecha de Finalizacion: <%= @kontest.enddate %></p>
+
+<%= link_to "Edit", edit_kontest_path(@kontest), :class => "btn btn-default" %>
+<%= link_to "Indice", kontests_path, :class => "btn btn-default" %>

@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012162635) do
+ActiveRecord::Schema.define(version: 20151013025402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "kontests", force: :cascade do |t|
+    t.string   "clientcode"
+    t.string   "clientname"
+    t.datetime "startdate"
+    t.datetime "enddate"
+    t.string   "admin"
+    t.string   "award"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "amountwinners"
+    t.integer  "amountcodes"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
