@@ -2,7 +2,8 @@ Rails.application.routes.draw do
  
   
 
-  root to: "kontests#index"  
+  root to: "home#index"  
+    
   resources :kontests
   devise_for :users
 

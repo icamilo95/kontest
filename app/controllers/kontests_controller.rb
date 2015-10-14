@@ -1,4 +1,6 @@
 class KontestsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
    @kontests = Kontest.all
   end
