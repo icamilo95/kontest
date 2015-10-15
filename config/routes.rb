@@ -1,16 +1,23 @@
 Rails.application.routes.draw do
  
+  get 'homeclient/index'
+
+  root to: "home#index"  
+
+  devise_for :clients
+  devise_for :admins
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users
+    get '/homeadmin' => 'homeadmin#index', as: :indexadmin
+    get '/homeuser' => 'homeuser#index', as: :indexuser
+    get '/homeclient' => 'homeclient#index', as: :indexclient
   
-  get 'homeadmin/index' => 'homeadmin#index', as: 'homeadminindex'
-  get 'homeclient/index' => 'homeclient#index', as: 'homeclientindex'
-  get 'homeuser/index' => 'homeuser#index', as: 'homeuserindex'
   
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root to: "home#index"  
+  
     
   resources :kontests
-  devise_for :users
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
