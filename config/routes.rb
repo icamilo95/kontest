@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
  
   
-
-  get 'homeuser/index'
-
-  get 'homeclient/index'
-
-  get 'homeadmin/index'
+  get 'homeadmin/index' => 'homeadmin#index', as: 'homeadminindex'
+  get 'homeclient/index' => 'homeclient#index', as: 'homeclientindex'
+  get 'homeuser/index' => 'homeuser#index', as: 'homeuserindex'
+  
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "home#index"  
