@@ -31,7 +31,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "devise"
 gem "rails_admin"
-gem 'cancancan', '~> 1.10'
 
 
 # Use Capistrano for deployment

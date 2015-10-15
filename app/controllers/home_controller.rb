@@ -1,13 +1,9 @@
 class HomeController < ApplicationController
-  
+  before_action :authenticate_user!
 
   def index
       if user_signed_in?
-         redirect_to indexuser_path
-      elsif client_signed_in?
-         redirect_to indexclient_path
-      elsif admin_signed_in?
-         redirect_to indexadmin_path
+         redirect_to kontests_path
       end
   end
 end
