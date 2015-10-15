@@ -1,5 +1,5 @@
 class HomeclientController < ApplicationController
-    before_action :authenticate_client!
+    before_action :authenticate_user!
 
   def index
   end

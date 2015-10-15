@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  get 'homeadmin/index'
+
   get 'homeclient/index'
 
   root to: "home#index"  
