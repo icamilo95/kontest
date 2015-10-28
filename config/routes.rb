@@ -1,22 +1,36 @@
 Rails.application.routes.draw do
  
-  get 'homeclient/index'
-
   root to: "home#index"  
 
-  devise_for :clients
+  # Admin Rails
+  mount RailsAdmin::Engine => '/dashboard', as: 'rails_admin'
+  
+  # DEVISE
   devise_for :admins
-    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  namespace :admin do 
+    resources :clients
+    resources :users, only: [:index, :show]
+  end
+
+  devise_for :clients
   devise_for :users
-    get '/homeadmin' => 'homeadmin#index', as: :indexadmin
-    get '/homeuser' => 'homeuser#index', as: :indexuser
-    get '/homeclient' => 'homeclient#index', as: :indexclient
+
+  # CLIENTS and KONTESTS
+  resources :clients do
+    resources :kontests, shallow: true
+  end
+  
+  # These routes take me to the home of every user, client, admin
+  get '/homeadmin' => 'homeadmin#index', as: :indexadmin
+  get '/homeuser' => 'homeuser#index', as: :indexuser
+  get '/homeclient' => 'homeclient#index', as: :indexclient
   
   
 
   
     
-  resources :kontests
+  
   
 
 

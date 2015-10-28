@@ -4,6 +4,8 @@ RailsAdmin.config do |config|
     redirect_to main_app.root_path unless current_admin
   end
 
+  config.audit_with :history, Client
+
   ### Popular gems integration
 
   ## == Devise ==

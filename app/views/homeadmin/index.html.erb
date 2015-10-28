@@ -3,11 +3,116 @@
 <h1>Home ADMINISTRADOR </h1>
 
 <div class="cotainer-fluid">
-   
+   <div class="col-xs-8">
+       <div class="panel panel-default">
+         <div class="panel-body">
+           <div class="row">
+               <div class="col-xs-3 col-md-3">
+               Dashboard
+                 <a href="/dashboard" class="thumbnail">
+                   <img src="/assets/dashboard.gif" alt="Todos" class="small-pic-size"> 
+                 </a>
+               </div>
+
+               <div class="col-xs-3 col-md-3">
+                Clientes
+                 <a href="/clients" class="thumbnail">
+                   <img src="/assets/example.png" alt="Clientes" class="small-pic-size">
+                 </a>        
+               </div>
+
+               <div class="col-xs-3 col-md-3">
+               Usuarios
+                 <a href="#" class="thumbnail">
+                   <img src="/assets/example.png" alt="CursoPromotor"  class="small-pic-size">
+                 </a>        
+               </div>
+
+               <div class="col-xs-3 col-md-3">
+               Proximas 
+                 <a href="proxvacas" class="thumbnail">
+                   <img src="/assets/example.png" alt="Vacaciones"  class="small-pic-size">
+                 </a>        
+               </div>
+           </div> <!-- Closes 1st row -->
+       
+           <div class="row">
+               <div class="col-xs-3 col-md-3">
+               Cursos 
+                 <a href="/cursovence" class="thumbnail">
+                   <img src="/assets/example.png" alt="cursos" class="small-pic-size">
+                 </a>
+               </div>
+
+               <div class="col-xs-3 col-md-3">
+               Credenciales 
+                 <a href="credencialvence" class="thumbnail">
+                   <img src="/assets/example.png" alt="Credenciales"  class="small-pic-size">
+                 </a>
+               </div>
+
+               <div class="col-xs-3 col-md-3">
+               Personal
+                 <a href="/retirados" class="thumbnail">
+                   <img src="/assets/example.png" alt="Retirados"  class="small-pic-size">
+                 </a>
+               </div>
+
+               
+           </div> <!-- Closes 2nd row -->
+         </div>
+       </div>  
+     </div> <!-- Closes 1st Column -->
+
+     <div class="col-xs-4">
+           <div class="panel panel-default">
+         <div class="panel-body">
+
+           <div class="row">
+             
+             
+                     <div class="col-xs-6 col-md-6">
+                       <div class="media">
+                       Crear Empleado
+                         <div class="media-left">
+                           <a href="/empleados/new" class="thumbnail">
+                           <img src="/assets/example.png" alt="Nuevo Empleado" >
+                         </a>
+                         </div>
+                       </div>
+                     </div>
+             
+                     <div class="col-xs-6 col-md-6">
+                       <div class="media">
+                       Crear Cliente
+                         <div class="media-left">
+                           <a href="/clientes/new" class="thumbnail">
+                           <img src="/assets/example.png" alt="Nuevo Cliente" >
+                         </a>
+                         </div>
+                       </div>
+                     </div>
+             
+               
+             <div class="col-xs-6 col-md-6">
+               <div class="media">
+               Exportar a Excel
+                 <div class="media-left">
+                   <a href="/empleados.xls" class="thumbnail" class="small-pic-size">
+                   <img src="/assets/example.png" alt="Exportar XLS" >
+                 </a>
+                 </div>
+               </div>
+             </div>
+               
+           </div> <!-- Closes 1st row of second column-->
+               </div>
+             </div>
+     </div> <!-- Closes 2nd Column-->        
 
 
 
-<%= link_to "Admin Panel", "/admin" , :class => "btn btn-default" %>
+<%= link_to "Dashboard", "/admin" , :class => "btn btn-default" %>
 
 </div>
 

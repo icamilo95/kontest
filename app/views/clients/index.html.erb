@@ -1,0 +1,20 @@
+<%= render "layouts/menu" %>
+
+<div class="container-fluid">
+   <h3> Lista de Clients para el Admin</h3>
+
+   <% @clients.each do |client| %>
+      <ul>
+         <li><%= client.name %> - <%= link_to client.email, client_path(client) %></li>   
+      </ul>
+      
+   <% end %>
+
+   
+   <hr>
+   <%= link_to "Home", "/homeadmin" , :class => "btn btn-default" %>
+   <%= link_to "Nueno Cliente", new_client_path , :class => "btn btn-default" %>
+
+</div>
+
+

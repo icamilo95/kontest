@@ -1,0 +1,42 @@
+<%= render "layouts/menu" %>
+
+<div class="container-fluid">
+   <h3>Clients show</h3>
+
+   <p><%= @client.name %></p>
+   <p><%= @client.email %></p>
+      <br>   
+   <p>Nombre: <%= @client.name   %> </p>
+   <p>Contacto: <%= @client.contacto   %> </p>
+   <p>Celular: <%= @client.celular   %> </p>
+   <p>Telefono: <%= @client.telefono   %> </p>
+   <p>Comentarios: <%= @client.comentarios   %> </p>
+   <p>Direccion: <%= @client.direccion   %> </p>
+   <p>Codigo: <%= @client.codigo   %> </p>
+   <p>Pais: <%= @client.pais   %> </p>
+   <p>Ciudad: <%= @client.ciudad   %> </p>
+   <p>Logo: <%= @client.logo   %> </p>   
+   <br>
+   <p>Rset password enviado el: <%= @client.reset_password_sent_at   %> </p>
+   <p>Recordatorio de clave el: <%= @client.remember_created_at   %> </p>
+   <p>Ingresos: <%= @client.sign_in_count   %> </p>
+   <p>Actual ingreso: <%= @client.current_sign_in_at   %> </p>
+   <p>Ultimo ingreso:<%= @client.last_sign_in_at   %> </p>
+   <p>IP: <%= @client.current_sign_in_ip   %> </p>
+   <p>Ultimo IP: <%= @client.last_sign_in_ip   %> </p>
+   <p>Creado el: <%= @client.created_at   %> </p>
+   <p>Modificado el: <%= @client.updated_at   %> </p>
+
+   
+   <%= link_to "Indice de clientes", clients_path , :class => "btn btn-default" %>
+   <%= link_to "Editar", edit_client_path(@client) , :class => "btn btn-default" %>
+
+
+</div>
+
+
+
+
+
+
+

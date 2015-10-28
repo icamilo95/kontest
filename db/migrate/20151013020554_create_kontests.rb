@@ -7,6 +7,7 @@ class CreateKontests < ActiveRecord::Migration
       t.datetime :enddate
       t.string :admin
       t.string :award
+      t.integer :client_id
       
 
       t.timestamps null: false
