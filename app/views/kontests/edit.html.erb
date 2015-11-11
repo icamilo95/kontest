@@ -1,5 +1,5 @@
-<h1>Kontests#edit</h1>
-<p>Find me in app/views/kontests/edit.html.erb</p>
+<h1>Kontests edit</h1>
+
 
 
 <% if @kontest.errors.any? %>
@@ -10,16 +10,16 @@
    <% end %>
 <% end %>
 
-<%= form_for @kontest do |f| %>
+<%= form_for [ @kontest] do |f| %>
    
-   <p><%= f.label :clientname, "Nombre del Cliente" %> <%= f.text_field :clientname %></p>
-   <p><%= f.label :clientcode, "Codigo del Cliente" %> <%= f.text_field :clientcode %></p>
-   <p><%= f.label :admin, "Creado por: " %> <%= f.text_field :admin %></p>
-   <p><%= f.label :amountwinners, "Cantidad de Ganadores" %> <%= f.text_field :amountwinners %></p>
-   <p><%= f.label :amountcodes, "Cantidad de Codigos" %> <%= f.text_field :amountcodes %></p>
+   <p><%= f.label :clientname, "Nombre del Cliente" %> <%= @client.name %></p>
+   <p><%= f.label :clientcode, "Codigo del Cliente" %> <%= @client.codigo %></p>
+   <p><%= f.label :admin, "Creado por: " %> <%= f.text_field :admin, :value => @admin.email, :disabled => true %></p>
+   <p><%= f.label :amountwinners, "Cantidad de Ganadores" %> <%= f.select :amountwinners, (1..200) %></p>
+   <p><%= f.label :amountcodes, "Cantidad de Codigos" %> <%= f.select :amountcodes, [500,1500,3500,10000] %></p>
    <p><%= f.label :award, "Descripcion del Premio" %> <%= f.text_field :award %></p>
-   <p><%= f.label :startdate, "Fecha de Inicio" %> <%= f.date_select :startdate , {:order => [:day, :month, :year], :include_blank => true, :start_year => Date.current.year + 1, :end_year => 1920,:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,:class => "form-control", :style => "width:50px; display: inline;" %></p>
-   <p><%= f.label :enddate, "Fecha de Finalizacion" %> <%= f.date_select :enddate , {:order => [:day, :month, :year], :include_blank => true, :start_year => Date.current.year + 3, :end_year => 1920,:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,:class => "form-control", :style => "width:50px; display: inline;" %></p>
+   <p><%= f.label :startdate, "Fecha de Inicio" %> <%= f.date_select :startdate , {:order => [:day, :month, :year], :include_blank => true, :start_year => Date.current.year + 3, :end_year => Date.current.year,:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,:class => "form-control", :style => "width:50px; display: inline;" %></p>
+   <p><%= f.label :enddate, "Fecha de Finalizacion" %> <%= f.date_select :enddate , {:order => [:day, :month, :year], :include_blank => true, :start_year => Date.current.year + 3, :end_year => Date.current.year,:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,:class => "form-control", :style => "width:50px; display: inline;" %></p>
 
    <p><%= f.submit "Aceptar Cambios", :class => "btn btn-primary" %> </p>
    

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019213723) do
+ActiveRecord::Schema.define(version: 20151111211145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 20151019213723) do
     t.datetime "updated_at",    null: false
     t.integer  "amountwinners"
     t.integer  "amountcodes"
+  end
+
+  create_table "unicodes", force: :cascade do |t|
+    t.string   "secuence"
+    t.string   "winner"
+    t.integer  "kontest_id"
+    t.string   "clientcode"
+    t.integer  "user_id"
+    t.datetime "registrationdate"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "users", force: :cascade do |t|

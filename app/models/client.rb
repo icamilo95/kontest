@@ -4,7 +4,7 @@ class Client < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         
+   has_many :kontests, dependent: :destroy         
 
    def generateCode
       self.codigo =  SecureRandom.hex(6)

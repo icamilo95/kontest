@@ -11,6 +11,7 @@ class ClientsController < ApplicationController
 
   def show
     @client = Client.find params[:id]
+    @kontests = Kontest.where(client_id: @client.id )
   end
 
   def edit

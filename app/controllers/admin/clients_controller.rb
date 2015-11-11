@@ -5,10 +5,6 @@ class Admin::ClientsController < ApplicationController
    @clients = Client.all
   end
 
-  # def new
-  #   this function is placed in clietns_controller
-  # end
-
   def create
    @client = Client.new client_params
    @client.generateCode
@@ -20,13 +16,6 @@ class Admin::ClientsController < ApplicationController
    end
   end
 
-  # def show
-  #    this function is placed in clietns_controller
-  # end
-
-  # def edit
-   # this function is placed in clietns_controller
-  # end
 
   def update
      @client = Client.find params[:id]

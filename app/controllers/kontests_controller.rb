@@ -1,5 +1,5 @@
 class KontestsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_admin!
 
   def index
    @kontests = Kontest.all
@@ -7,14 +7,20 @@ class KontestsController < ApplicationController
 
   def show
    @kontest = Kontest.find params[:id]
+   @client = @kontest.client
   end
 
   def new
    @kontest = Kontest.new
+   @client = Client.find params[:client_id]
+   @admin = current_admin
   end
 
   def create
    @kontest = Kontest.new kontest_params
+   @client = Client.find params[:client_id]
+   @kontest.client = @client
+   @unicodes = Unicode.where(kontest_id: @kontest.id)
    if @kontest.save
       redirect_to kontest_path(@kontest)
    else
@@ -24,6 +30,8 @@ class KontestsController < ApplicationController
 
   def edit
    @kontest = Kontest.find params[:id]
+   @client = @kontest.client
+   @admin = current_admin
   end
 
   def update
