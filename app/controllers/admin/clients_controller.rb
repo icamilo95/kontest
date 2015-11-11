@@ -5,26 +5,28 @@ class Admin::ClientsController < ApplicationController
    @clients = Client.all
   end
 
-  def new
-    @client = Client.new
-  end
+  # def new
+  #   this function is placed in clietns_controller
+  # end
 
   def create
    @client = Client.new client_params
+   @client.generateCode
+   
    if @client.save
       redirect_to client_path(@client)
    else
-      render :new
+      render "clients/new"
    end
   end
 
-  def show
-    @client = Client.find params[:id]
-  end
+  # def show
+  #    this function is placed in clietns_controller
+  # end
 
-  def edit
-    @client = Client.find params[:id]
-  end
+  # def edit
+   # this function is placed in clietns_controller
+  # end
 
   def update
      @client = Client.find params[:id]
