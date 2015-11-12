@@ -12,5 +12,11 @@
 <p>Fecha de Inicio: <%= @kontest.startdate %></p>
 <p>Fecha de Finalizacion: <%= @kontest.enddate %></p>
 
+<br>
+
+<% @unicodes.each do |unicode| %>
+   <p><%= unicode.clientcode %> - <%= unicode.secuence %></p>
+<% end %>
+
 <%= link_to "Edit", edit_kontest_path(@kontest), :class => "btn btn-default" %>
 <%= link_to "Cliente", client_path(@client), :class => "btn btn-default" %>
