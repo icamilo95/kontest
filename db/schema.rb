@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20151111211145) do
 
   create_table "unicodes", force: :cascade do |t|
     t.string   "secuence"
-    t.string   "winner"
+    t.boolean  "winner"
     t.integer  "kontest_id"
     t.string   "clientcode"
     t.integer  "user_id"

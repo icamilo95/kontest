@@ -15,7 +15,7 @@
 <br>
 
 <% @unicodes.each do |unicode| %>
-   <p><%= unicode.clientcode %> - <%= unicode.secuence %></p>
+   <p><%= unicode.id %> - <%= unicode.clientcode %> - <%= unicode.secuence %> - <%= unicode.winner %></p>
 <% end %>
 
 <%= link_to "Edit", edit_kontest_path(@kontest), :class => "btn btn-default" %>

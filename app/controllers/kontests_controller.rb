@@ -8,7 +8,7 @@ class KontestsController < ApplicationController
   def show
    @kontest = Kontest.find params[:id]
    @client = @kontest.client
-   @unicodes = Unicode.where(clientcode: @client.codigo)
+   @unicodes = Unicode.where(kontest_id: @kontest.id)
   end
 
   def new
@@ -25,7 +25,7 @@ class KontestsController < ApplicationController
    if @kontest.save
         @kontest.amountcodes.times do
           @code = Unicode.new  
-          @code.setValues(@kontest.id, @client.codigo )    
+          @code.setValues(@kontest, @client.codigo )  
           @code.save
         end
       redirect_to kontest_path(@kontest)
