@@ -1,22 +1,77 @@
-<h1>Kontests#show</h1>
-
-
-
-
-<p>Cliente: <%= @kontest.clientname %></p>
-<p>Codigo del Cliente: <%= @kontest.clientcode %></p>
-<p>Creado por: <%= @kontest.admin %></p>
-<p>Cantidad de Ganadores: <%= @kontest.amountwinners %></p>
-<p>Cantidad de Codigos: <%= @kontest.amountcodes %></p>
-<p>Premio: <%= @kontest.award %></p>
-<p>Fecha de Inicio: <%= @kontest.startdate %></p>
-<p>Fecha de Finalizacion: <%= @kontest.enddate %></p>
-
 <br>
 
-<% @unicodes.each do |unicode| %>
-   <p><%= unicode.id %> - <%= unicode.clientcode %> - <%= unicode.secuence %> - <%= unicode.winner %></p>
-<% end %>
+<div class="container-fluid">
+   <div class="col-sm-12">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <h2 class="panel-title text-left"><%= @client.name %> 
+                  <%= link_to "Edit", edit_kontest_path(@kontest), :class => "btn btn-default" %>
+                  <%= link_to "Cliente", client_path(@client), :class => "btn btn-default" %>
+                  
+               </h2>   
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <div class="col-sm-6">                     
+                     <table class="table table-bordered">
+                        <tr><th scope="row">Cliente: </th><td><%= @kontest.clientname %></td></tr>
+                        <tr><th scope="row">Creado por: </th><td><%= @kontest.admin %></td></tr>                        
+                        <tr><th scope="row">Inicio: </th><td><%= @kontest.startdate %></td></tr>
+                        <tr><th scope="row">Finalizacion: </th><td><%= @kontest.enddate %></td></tr>
+                     </table>
+                  </div> 
+                  <div class="col-sm-6">                     
+                     <table class="table table-bordered">
+                        <tr><th scope="row">Codigo del Cliente: </th><td><%= @kontest.clientcode %></td></tr>
+                        <tr><th scope="row">Cantidad de Ganadores: </th><td><%= @kontest.amountwinners %></td></tr>
+                        <tr><th scope="row">Cantidad de Codigos: </th><td><%= @kontest.amountcodes %></td></tr>
+                        <tr><th scope="row">Premio: </th><td><%= @kontest.award %></td></tr>
+                     </table>
+                  </div>
+               </div>               
+               
+               
+               <div class="row">              
+                  <div class="col-sm-12"> 
+                     <div class="panel panel-default">
+                        <div class="panel-heading">Unicodes</div>
+                           <table class="table table-bordered">
+                              <tr>
+                                 <th>Id</th>
+                                 <th>Kontest Id</th>
+                                 <th>Codigo Cliente</th>
+                                 <th>Secuencia</th>
+                                 <th>Ganador</th>
+                                 <th>Id Usuario</th>
+                                 <th>Fecha Registro</th>
+                              </tr>
+                              
+                                  <% @unicodes.each do |unicode| %>    
+                                    <tr>
+                                       <td><%= unicode.id %></td>
+                                       <td><%= unicode.kontest_id %></td>
+                                       <td><%= unicode.clientcode %></td>
+                                       <td><%= unicode.secuence %></td>
+                                       <td><%= unicode.winner %></td>
+                                       <td><%= unicode.user_id %></td>
+                                       <td><%= unicode.registrationdate %></td>
+                                    </tr>           
+                                 <% end %>
+                              
+                              
+                           </table>         
+                     </div> <!-- panel-default -->
+                  </div> <!-- col-sm-12 -->
+               </div>  <!-- row -->    
+               
+               
+                 
+                        
+               
 
-<%= link_to "Edit", edit_kontest_path(@kontest), :class => "btn btn-default" %>
-<%= link_to "Cliente", client_path(@client), :class => "btn btn-default" %>
+            </div> <!--Panel-body -->
+      </div>  <!--Panel-default -->
+   </div> <!-- Col sm 9 -->
+
+
+</div> <!-- Container -->

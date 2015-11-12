@@ -1,50 +1,99 @@
 <%= render "layouts/menu" %>
 
 <div class="container-fluid">
-   <h3>Clients show</h3>
+   <div class="col-sm-9">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <h2 class="panel-title text-left"><%= @client.name %> 
+                  <%= link_to "Editar Cliente", edit_client_path(@client) , :class => "btn btn-default" %>
+                  <%= link_to "Nuevo Kontest", new_client_kontest_path(@client) , :class => "btn btn-default" %> 
+                  <%= link_to "Indice de clientes", clients_path , :class => "btn btn-default" %>
+               </h2>   
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <div class="col-sm-6">                     
+                     <table class="table table-bordered">
+                        <tr><th scope="row">Email:</th><td><%= @client.email %></td></tr>
+                        <tr><th scope="row">Contacto:</th><td><%= @client.contacto   %> </td></tr>
+                        <tr><th scope="row">Celular:</th><td><%= @client.celular   %> </td></tr>
+                        <tr><th scope="row">Telefono:</th><td><%= @client.telefono   %> </td></tr>
+                        <tr><th scope="row">Comentarios:</th><td><%= @client.comentarios   %> </td></tr>
+                     </table>
+                  </div> 
+                  <div class="col-sm-6">                     
+                     <table class="table table-bordered">
+                        <tr><th scope="row">Direccion:</th><td><%= @client.direccion   %> </td></tr>
+                        <tr><th scope="row">Codigo:</th><td><%= @client.codigo   %> </td></tr>
+                        <tr><th scope="row">Pais:</th><td><%= @client.pais   %> </td></tr>
+                        <tr><th scope="row">Ciudad:</th><td><%= @client.ciudad   %> </td></tr>
+                        <tr><th scope="row">Logo:</th><td><%= @client.logo   %> </td></tr>
+                     </table>
+                  </div>
+               </div>               
+               
+               
+               <div class="row">              
+                  <div class="col-sm-12"> 
+                     <div class="panel panel-default">
+                        <div class="panel-heading">Kontests</div>
+                           <table class="table table-bordered">
+                              <tr>
+                                 <th>Id</th>
+                                 <th>Premio</th>
+                                 <th>Fecha Inicio</th>
+                                 <th>Fecha Fin</th>
+                                 <th>Ganadores</th>
+                                 <th>Codigos</th>
+                              </tr>
+                              <% if @kontests %>
+                                 <% @kontests.each do |kontest| %>     
+                                    <tr>
+                                       <td><%= link_to kontest.id, kontest_path(kontest) %></td>
+                                       <td><%= kontest.award %></td>
+                                       <td><%= kontest.startdate %></td>
+                                       <td><%= kontest.enddate %></td>
+                                       <td><%= kontest.amountwinners %></td>
+                                       <td><%= kontest.amountcodes %></td>
+                                    </tr>           
+                                 <% end %>
+                              <% end %>
+                              
+                           </table>         
+                     </div> <!-- panel-default -->
+                  </div> <!-- col-sm-12 -->
+               </div>  <!-- row -->    
+               
+               
+                 
+                        
+               
+
+            </div> <!--Panel-body -->
+      </div>  <!--Panel-default -->
+   </div> <!-- Col sm 9 -->
+      
+   <div class="col-sm-3">
+         <div class="panel panel-default">
+            
+                  <table class="table table-bordered">
+                     <tr><th scope="row">Rset password enviado el: </th><td><%= @client.reset_password_sent_at   %></td></tr>
+                     <tr><th scope="row">Recordatorio de clave el: </th><td><%= @client.remember_created_at   %></td></tr>
+                     <tr><th scope="row">Ingresos: </th><td><%= @client.sign_in_count   %></td></tr>
+                     <tr><th scope="row">Actual ingreso: </th><td><%= @client.current_sign_in_at   %></td></tr>
+                     <tr><th scope="row">Ultimo ingreso:</th><td><%= @client.last_sign_in_at   %></td></tr>
+                     <tr><th scope="row">IP: </th><td><%= @client.current_sign_in_ip   %></td></tr>
+                     <tr><th scope="row">Ultimo IP: </th><td><%= @client.last_sign_in_ip   %></td></tr>
+                     <tr><th scope="row">Creado el: </th><td><%= @client.created_at   %></td></tr>
+                     <tr><th scope="row">Modificado el: </th><td><%= @client.updated_at   %> </td></tr>
+                  </table>                       
+      </div>  <!--Panel-default -->
+   </div> <!-- Col sm 9 -->   
 
    
-   <div class="row">
-      <div class="col-sm-6">
-         <p>Nombre: <%= @client.name   %> </p>
-         <p>Email: <%= @client.email %></p>
-         <p>Contacto: <%= @client.contacto   %> </p>
-         <p>Celular: <%= @client.celular   %> </p>
-         <p>Telefono: <%= @client.telefono   %> </p>
-         <p>Comentarios: <%= @client.comentarios   %> </p>
-         <p>Direccion: <%= @client.direccion   %> </p>
-         <p>Codigo: <%= @client.codigo   %> </p>
-         <p>Pais: <%= @client.pais   %> </p>
-         <p>Ciudad: <%= @client.ciudad   %> </p>
-         <p>Logo: <%= @client.logo   %> </p>   
-      </div>   
-      
-      <div class="col-sm-6">
-         <p>Rset password enviado el: <%= @client.reset_password_sent_at   %> </p>
-         <p>Recordatorio de clave el: <%= @client.remember_created_at   %> </p>
-         <p>Ingresos: <%= @client.sign_in_count   %> </p>
-         <p>Actual ingreso: <%= @client.current_sign_in_at   %> </p>
-         <p>Ultimo ingreso:<%= @client.last_sign_in_at   %> </p>
-         <p>IP: <%= @client.current_sign_in_ip   %> </p>
-         <p>Ultimo IP: <%= @client.last_sign_in_ip   %> </p>
-         <p>Creado el: <%= @client.created_at   %> </p>
-         <p>Modificado el: <%= @client.updated_at   %> </p>   
-      </div>   
-   </div>
-
-   <div class="row">
-      <% if @kontests %>
-         <% @kontests.each do |kontest| %> 
-            <p> <%= link_to kontest.id, kontest_path(kontest) %> <%= kontest.clientname %> - <%= kontest.award %> - <%= kontest.startdate %> -</p>
-         <% end %>
-      <% end %>
-   </div>
-      
-
    
-   <%= link_to "Indice de clientes", clients_path , :class => "btn btn-default" %>
-   <%= link_to "Editar Cliente", edit_client_path(@client) , :class => "btn btn-default" %>
-   <%= link_to "Nuevo Kontest", new_client_kontest_path(@client) , :class => "btn btn-default" %>
+   
+   
 
 
 </div>

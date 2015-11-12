@@ -1,4 +1,4 @@
-<h1>Kontests#new</h1>
+<br>
 
 <% if @kontest.errors.any? %>
    <% @kontest.errors.full_messages.each do |error|%>
@@ -9,22 +9,42 @@
 <% end %>
 
 
-
-<%= form_for [:client, @kontest] do |f| %>
+<div class="container-fluid">
    
-   <p><%= f.label :clientname, "Nombre del Cliente" %> <%= f.text_field :clientname, :value => @client.name, :readonly => true%></p>
-   <p><%= f.label :clientcode, "Codigo del Cliente" %> <%= f.text_field :clientcode, :value => @client.codigo, :readonly => true %></p>
-   <p><%= f.label :admin, "Creado por: " %> <%= f.text_field :admin, :value => @admin.email, :readonly => true %></p>
-   <p><%= f.label :amountwinners, "Cantidad de Ganadores" %> <%= f.select :amountwinners, (1..300) %></p>
-   <p><%= f.label :amountcodes, "Cantidad de Codigos" %> <%= f.select :amountcodes, [5,10,20,500,1500,3500,10000] %></p>
-   <p><%= f.label :award, "Descripcion del Premio" %> <%= f.text_field :award %></p>
-   <p><%= f.label :startdate, "Fecha de Inicio" %> <%= f.date_select :startdate , {:order => [:day, :month, :year], :include_blank => true, :start_year => Date.current.year + 3, :end_year => Date.current.year,:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,:class => "form-control", :style => "width:50px; display: inline;" %></p>
-   <p><%= f.label :enddate, "Fecha de Finalizacion" %> <%= f.date_select :enddate , {:order => [:day, :month, :year], :include_blank => true, :start_year => Date.current.year + 3, :end_year => Date.current.year,:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,:class => "form-control", :style => "width:50px; display: inline;" %></p>
+   <div class="col-sm-6">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">Crear Kontest</h3>
+         </div>
+         <div class="panel-body">
+            <%= form_for [:client, @kontest] do |f| %>
+               
+              <%= f.label :clientname, "Nombre del Cliente" %> <%= f.text_field :clientname, :value => @client.name, :readonly => true, :class => "form-control"  %>
+              <%= f.label :clientcode, "Codigo del Cliente" %> <%= f.text_field :clientcode, :value => @client.codigo, :readonly => true , :class => "form-control"  %>
+              <%= f.label :admin, "Creado por: " %> <%= f.text_field :admin, :value => @admin.email, :readonly => true , :class => "form-control"  %>
+              <%= f.label :amountwinners, "Cantidad de Ganadores" %> <%= f.select :amountwinners, (1..300) , :class => "form-control"  %>
+              <%= f.label :amountcodes, "Cantidad de Codigos" %> <%= f.select :amountcodes, [5,10,20,500,1500,3500,10000] , :class => "form-control"  %>
 
-   <p><%= f.submit "Crear", :class => "btn btn-primary" %> </p>
+              <%= f.label :award, "Descripcion del Premio" %> <%= f.text_field :award , :class => "form-control"  %>
+              <br>
+              <%= f.label :startdate, "Fecha de Inicio" %> <%= f.date_select :startdate , {:order => [:day, :month, :year], :include_blank => true, :start_year => Date.current.year + 3, :end_year => Date.current.year,:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,:class => "form-control", :style => "width:50px; display: inline;"  %>
+              <br>
+              <%= f.label :enddate, "Fecha de Finalizacion" %> <%= f.date_select :enddate , {:order => [:day, :month, :year], :include_blank => true, :start_year => Date.current.year + 3, :end_year => Date.current.year,:use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,:class => "form-control", :style => "width:50px; display: inline;" %>
+               <br>
+              <%= f.submit "Crear", :class => "btn btn-primary" %> 
+               
+            <% end %>            
+                
+               
+              
+         </div> <!--Panel-body -->
+      </div>  <!--Panel-default -->
+   </div> <!-- Col sm 6 -->
+
    
-<% end %>
+  
 
-<li><%= link_to "Home", root_path, :class => "btn btn-default" %></li>
+   <%= link_to "Inicio", root_path,:class => "btn btn-default" %>
 
 
+</div>   <!-- Container -->

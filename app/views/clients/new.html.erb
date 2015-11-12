@@ -1,29 +1,53 @@
 <%= render "layouts/menu" %>
 
-<div class="container-fluid">
-   <h1>Crear Cliente</h1>   
-
-  <%= form_for [:admin, @client] do |f| %> <!-- Sends to admin/clients#create-->
-      <p> <%= f.label :name %> <%= f.text_field :name %></p>
-      <p> <%= f.label :email %> <%= f.text_field :email %> </p>
-      <p> <%= f.label :password %> <%= f.text_field :password %> </p>
-      <p> <%= f.label :contacto %> <%= f.text_field :contacto %></p>
-      <p> <%= f.label :celular %> <%= f.text_field :celular %></p>
-      <p> <%= f.label :telefono %> <%= f.text_field :telefono %></p>
-      <p> <%= f.label :comentarios %> <%= f.text_field :comentarios %></p>
-      <p> <%= f.label :direccion %> <%= f.text_field :direccion %></p>
-      
-      <p> <%= f.label :pais %> <%= f.text_field :pais %></p>
-      <p> <%= f.label :ciudad %> <%= f.text_field :ciudad %></p>
-      <p> <%= f.label :logo %> <%= f.text_field :logo %></p>
-
-      <%= f.submit "Crear", :class => "btn btn-primary" %>
-
+<% if @client.errors.any? %>
+   <% @client.errors.full_messages.each do |error|%>
+   <p class="text-danger">
+      <%= error%>
+   </p>
    <% end %>
+<% end %>
+<div class="container-fluid">
+   
+   <div class="col-sm-6">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">Crear Cliente</h3>
+         </div>
+         <div class="panel-body">
+            <%= form_for [:admin, @client] do |f| %> <!-- Sends to admin/clients#create-->
+               <div class="col-sm-6">
+                   <%= f.label :name, "Nombre del Cliente" %> <%= f.text_field :name, :class => "form-control" %>   
+                   <%= f.label :password %> <%= f.text_field :password, :class => "form-control" %> 
+                   <%= f.label :comentarios %> <%= f.text_field :comentarios, :class => "form-control" %>
+                   <%= f.label :pais %> <%= f.text_field :pais, :class => "form-control" %>
+                   <%= f.label :ciudad %> <%= f.text_field :ciudad, :class => "form-control" %>
+                   <%= f.label :logo %> <%= f.text_field :logo, :class => "form-control" %>
+                  <hr>
+                  <%= f.submit "Crear", :class => "btn btn-primary" %>
+               
+               </div>
+               <div class="col-sm-6">
+                  <%= f.label :email %> <%= f.text_field :email, :class => "form-control" %> 
+                  <%= f.label :contacto %> <%= f.text_field :contacto, :class => "form-control" %>
+                  <%= f.label :celular %> <%= f.text_field :celular, :class => "form-control" %>
+                  <%= f.label :telefono %> <%= f.text_field :telefono, :class => "form-control" %>
+                  <%= f.label :direccion %> <%= f.text_field :direccion, :class => "form-control" %>
+               </div> 
+               
+                
+               
+            <% end %>          
+         </div> <!--Panel-body -->
+      </div>  <!--Panel-default -->
+   </div> <!-- Col sm 6 -->
 
-   <%= link_to "Home", root_path,:class => "btn btn-default" %>
+   
+  
+
+   <%= link_to "Inicio", root_path,:class => "btn btn-default" %>
 
 
-</div>
+</div>   <!-- Container -->
 
 
