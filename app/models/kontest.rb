@@ -2,6 +2,9 @@ class Kontest < ActiveRecord::Base
    validates   :startdate, :enddate, :award, presence: true
    belongs_to :client
    has_many :unicodes, dependent: :destroy
+   
+   has_many :kontestusers
+   has_many :users, :through => :kontestusers
 
    # private
 

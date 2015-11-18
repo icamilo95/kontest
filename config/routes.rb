@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get '/registercode' => 'users#registercode', as: :registercode
   post '/registercode' => 'users#addcode', as: :add_code
   get '/result' => 'users#result', as: :result
+  get '/registeredcodes' => 'users#registeredcodes', as: :registeredcodes
 
   # These routes take me to the home of every user, client, admin
   get '/homeadmin' => 'homeadmin#index', as: :indexadmin

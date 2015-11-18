@@ -1,0 +1,34 @@
+<br>
+<div class="container-fluid">
+   
+   <div class="col-sm-6">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">Marcas en las que haz participado</h3>
+         </div>
+         <div class="panel-body">
+
+            <% @kontests.each do |kontest| %>
+               <p><%= kontest.clientname %></p>
+            <% end %>
+               
+            <hr>
+
+            <% @user_unicodes.each do |unicode| %>
+               <% @kontests.each do |kontest| %>
+                  <% if kontest.id == unicode.kontest_id %>
+                     <p><%= kontest.clientname %>
+                  <% end %>
+               <% end %>
+                - <%= unicode.secuence %> - Puntos aquiridos en Kontest: 3</p>
+               
+            <% end %>
+
+            <hr>
+            <%= link_to "Regresar", root_path, :class => "btn btn-default" %>
+         </div>
+
+      </div>
+   </div>
+
+</div>
