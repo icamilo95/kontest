@@ -52,7 +52,12 @@
         </li>
         <li>
             <% if user_signed_in? %>
-                <a href="#"><p>Hello, <b> <%= current_user.email %> </b> - <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %> </p>
+              <% if current_user.nombre %>
+                <a href="#"><p>Hello, <b> <%= current_user.nombre %> </b> - <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %> </p>  
+                <% else %>
+                  <a href="#"><p>Hello, <b> <%= current_user.email %> </b> - <%= link_to "Sign out", destroy_user_session_path, :method => 'delete' %> </p>
+                <% end %>
+                
             <% elsif  client_signed_in? %>
                  <p>Hello, <b> <%= current_client.email %> </b> - <%= link_to "Sign out", destroy_client_session_path, :method => 'delete' %> </p>
             <% elsif admin_signed_in? %> 

@@ -21,11 +21,12 @@ class KontestsController < ApplicationController
    @kontest = Kontest.new kontest_params
    @client = Client.find params[:client_id]
    @kontest.client = @client
+   @kontest.generateCode
    
    if @kontest.save
         @kontest.amountcodes.times do
           @code = Unicode.new  
-          @code.setValues(@kontest, @client.codigo )  
+          @code.setValues(@kontest)  
           @code.save
         end
       redirect_to kontest_path(@kontest)

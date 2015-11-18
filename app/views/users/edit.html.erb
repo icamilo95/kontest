@@ -1,0 +1,59 @@
+<h1>Users#edit</h1>
+
+<br>
+
+<% if @user.errors.any? %>
+   <% @user.errors.full_messages.each do |error|%>
+   <p class="text-danger">
+      <%= error%>
+   </p>
+   <% end %>
+<% end %>
+
+
+
+<div class="container-fluid">
+   
+   <div class="col-sm-6">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">Editar Usuario</h3>
+         </div>
+         <div class="panel-body">
+
+            <%= form_for @user, url: user_update_path do |f| %>
+               
+               <div class="col-sm-6">
+                  <%= f.label :nombre %> <%= f.text_field :nombre, :class => "form-control" %>
+               <%= f.label :apellido %> <%= f.text_field :apellido, :class => "form-control" %>
+               <%= f.label :email %> <%= f.text_field :email, :class => "form-control" %>
+               <%= f.label :edad %> <%= f.text_field :edad, :class => "form-control" %>
+               <%= f.label :genero %> <%= f.text_field :genero, :class => "form-control" %>   
+               </div>
+               <div class="col-sm-6">
+                  <%= f.label :celular %> <%= f.text_field :celular, :class => "form-control" %>
+               <%= f.label :direccion %> <%= f.text_field :direccion, :class => "form-control" %>
+               <%= f.label :pais %> <%= f.text_field :pais, :class => "form-control" %>
+               <%= f.label :ciudad %> <%= f.text_field :ciudad, :class => "form-control" %>   
+               <hr>
+               <%= f.submit "Aceptar Cambios", :class => "btn btn-primary" %> 
+               </div>
+               
+               
+                 
+                  
+
+            <% end %>
+
+
+         </div> <!--Panel-body -->
+      </div>  <!--Panel-default -->
+   </div> <!-- Col sm 6 -->
+
+   
+  
+
+   <%= link_to "Inicio", user_show_path(@user) ,:class => "btn btn-default" %>
+
+
+</div>   <!-- Container -->

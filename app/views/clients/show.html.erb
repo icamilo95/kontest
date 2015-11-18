@@ -24,7 +24,6 @@
                   <div class="col-sm-6">                     
                      <table class="table table-bordered">
                         <tr><th scope="row">Direccion:</th><td><%= @client.direccion   %> </td></tr>
-                        <tr><th scope="row">Codigo:</th><td><%= @client.codigo   %> </td></tr>
                         <tr><th scope="row">Pais:</th><td><%= @client.pais   %> </td></tr>
                         <tr><th scope="row">Ciudad:</th><td><%= @client.ciudad   %> </td></tr>
                         <tr><th scope="row">Logo:</th><td><%= @client.logo   %> </td></tr>
@@ -40,6 +39,7 @@
                            <table class="table table-bordered">
                               <tr>
                                  <th>Id</th>
+                                 <th>Codigo</th>
                                  <th>Premio</th>
                                  <th>Fecha Inicio</th>
                                  <th>Fecha Fin</th>
@@ -50,6 +50,7 @@
                                  <% @kontests.each do |kontest| %>     
                                     <tr>
                                        <td><%= link_to kontest.id, kontest_path(kontest) %></td>
+                                       <td><%= kontest.kontestcode %></td>
                                        <td><%= kontest.award %></td>
                                        <td><%= kontest.startdate %></td>
                                        <td><%= kontest.enddate %></td>

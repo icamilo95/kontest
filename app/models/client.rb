@@ -6,14 +6,6 @@ class Client < ActiveRecord::Base
 
    has_many :kontests, dependent: :destroy         
 
-   def generateCode
-      self.codigo =  SecureRandom.hex(3)
-   end
-
-
-
-
-
-
+   
 
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  
+
   root to: "home#index"  
 
   # Admin Rails
@@ -20,7 +22,15 @@ Rails.application.routes.draw do
   resources :clients do
     resources :kontests, shallow: true
   end
-  
+
+  # USERS
+  get '/user/' => 'users#show', as: :user_show
+  get '/user/edit' => 'users#edit',  as: :edit_user
+  patch '/user' => 'users#update', as: :user_update
+  get '/registercode' => 'users#registercode', as: :registercode
+  post '/registercode' => 'users#addcode', as: :add_code
+  get '/result' => 'users#result', as: :result
+
   # These routes take me to the home of every user, client, admin
   get '/homeadmin' => 'homeadmin#index', as: :indexadmin
   get '/homeuser' => 'homeuser#index', as: :indexuser

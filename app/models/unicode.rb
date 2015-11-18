@@ -2,19 +2,19 @@ class Unicode < ActiveRecord::Base
    belongs_to :kontest
 
    
-   def setValues (kontest, clientCodigo)
+   def setValues (kontest)
       self.kontest_id = kontest.id
-      self.clientcode = clientCodigo
-      generateSecuence(clientCodigo, kontest)
+      self.kontestcode = kontest.kontestcode
+      generateSecuence(kontest)
    end
 
-   def generateSecuence(clientCodigo, kontest)
+   def generateSecuence(kontest)
       newSecuence =  SecureRandom.hex(6)
-      checkRepetedCodes(newSecuence, clientCodigo, kontest)
+      checkRepetedCodes(newSecuence, kontest)
    end
 
-   def checkRepetedCodes(newSecuence, clientCodigo, kontest)
-      unicodes = Unicode.where(clientcode: clientCodigo)
+   def checkRepetedCodes(newSecuence, kontest)
+      unicodes = Unicode.where(kontestcode: kontest.kontestcode)
       if unicodes.include?(newSecuence)
          self.secuence = "Repeated code - Repeated code - ALERT"
       else
@@ -25,7 +25,6 @@ class Unicode < ActiveRecord::Base
          self.secuence = newSecuence
       end 
    end
-
 
 
 end

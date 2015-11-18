@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111211145) do
+ActiveRecord::Schema.define(version: 20151112192721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,13 +74,14 @@ ActiveRecord::Schema.define(version: 20151111211145) do
     t.datetime "updated_at",    null: false
     t.integer  "amountwinners"
     t.integer  "amountcodes"
+    t.string   "kontestcode"
   end
 
   create_table "unicodes", force: :cascade do |t|
     t.string   "secuence"
     t.boolean  "winner"
     t.integer  "kontest_id"
-    t.string   "clientcode"
+    t.string   "kontestcode"
     t.integer  "user_id"
     t.datetime "registrationdate"
     t.datetime "created_at",       null: false
@@ -101,6 +102,18 @@ ActiveRecord::Schema.define(version: 20151111211145) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "celular"
+    t.string   "genero"
+    t.integer  "edad"
+    t.string   "direccion"
+    t.string   "pais"
+    t.string   "ciudad"
+    t.string   "puntos"
+    t.string   "marcafav1"
+    t.string   "marcafav2"
+    t.string   "marcafav3"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

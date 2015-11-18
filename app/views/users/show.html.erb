@@ -1,0 +1,42 @@
+<h1>Perfil de Usuario</h1>
+
+
+<div class="container-fluid">
+   <div class="col-sm-9">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <h2 class="panel-title text-left"><%= @user.nombre %> 
+                  <%= link_to "Editar perfil", edit_user_path(@user) , :class => "btn btn-default" %>
+                  <%= link_to "Menu Principal", indexuser_path(@user) , :class => "btn btn-default" %>
+               </h2>   
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <div class="col-sm-6">                     
+                     <table class="table table-bordered">
+                        <tr><th scope="row">Nombre:</th><td><%= @user.nombre %></td></tr>
+                        <tr><th scope="row">Apellido:</th><td><%= @user.apellido   %> </td></tr>
+                        <tr><th scope="row">Email:</th><td><%= @user.email %></td></tr>
+                        <tr><th scope="row">Edad:</th><td><%= @user.edad   %> </td></tr>
+                        <tr><th scope="row">Genero:</th><td><%= @user.genero   %> </td></tr>
+                     </table>
+                  </div> 
+                  <div class="col-sm-6">                     
+                     <table class="table table-bordered">
+                        <tr><th scope="row">Celular:</th><td><%= @user.celular   %> </td></tr>
+                        <tr><th scope="row">Direccion:</th><td><%= @user.direccion   %> </td></tr>
+                        <tr><th scope="row">Pais:</th><td><%= @user.pais   %> </td></tr>
+                        <tr><th scope="row">Ciudad:</th><td><%= @user.ciudad   %> </td></tr>
+                        <tr><th scope="row">Puntos Acumulados:</th><td><%= @user.puntos   %> </td></tr>
+                     </table>
+                  </div>
+               </div>               
+
+            </div> <!--Panel-body -->
+      </div>  <!--Panel-default -->
+   </div> <!-- Col sm 9 -->
+      
+   
+
+
+</div> <!-- Container -->   

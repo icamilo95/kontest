@@ -1,0 +1,40 @@
+
+
+<br>
+<div class="container-fluid">
+   
+   
+      <div class="col-sm-6">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <h3 class="panel-title">Mensaje</h3>
+            </div>
+            <div class="panel-body">
+               <% if flash[:message] == "1" %>
+                  <p>Ganaste</p>
+                  <%= link_to "Ir a Inicio", root_path, :class => "btn btn-default" %>
+               <% elsif  flash[:message] == "2" %>
+                  <p>NO Ganaste, Sigue Intentando</p>
+                  <%= link_to "Ingresar Otro Codigo", registercode_path, :class => "btn btn-default" %>   
+               <% elsif  flash[:message] == "3" %>
+                  <p>Codigo ya registrado</p>
+                  <%= link_to "Ingresar Otro Codigo", registercode_path, :class => "btn btn-default" %>   
+               <% elsif  flash[:message] == "4" %>
+                  <p>Codigo ya registrado por otro usuario, Enviar foto de codigo y comunicarse con soporte</p>
+                  <%= link_to "Help", registercode_path, :class => "btn btn-default" %>   
+               <% elsif  flash[:message] == "5" %>
+                  <p>Codigo no registrado, ingrese codigo correctamente 2</p>
+                  <%= link_to "Ingresar Codigo Nuevamente", registercode_path, :class => "btn btn-default" %>      
+               <% elsif  flash[:message] == "6" %>
+                  <p>Codigo no registrado, ingrese codigo correctamente 1</p>
+                  <%= link_to "Ingresar Codigo Nuevamente", registercode_path, :class => "btn btn-default" %>         
+                  
+               <% end %>            
+            </div>
+         </div>
+      </div>
+   
+
+
+</div>
+

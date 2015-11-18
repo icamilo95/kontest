@@ -4,7 +4,7 @@ class CreateUnicodes < ActiveRecord::Migration
       t.string :secuence
       t.boolean :winner
       t.integer :kontest_id
-      t.string :clientcode
+      t.string :kontestcode
       t.integer :user_id
       t.datetime :registrationdate
 

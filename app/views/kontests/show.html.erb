@@ -16,13 +16,13 @@
                      <table class="table table-bordered">
                         <tr><th scope="row">Cliente: </th><td><%= @kontest.clientname %></td></tr>
                         <tr><th scope="row">Creado por: </th><td><%= @kontest.admin %></td></tr>                        
-                        <tr><th scope="row">Inicio: </th><td><%= @kontest.startdate %></td></tr>
-                        <tr><th scope="row">Finalizacion: </th><td><%= @kontest.enddate %></td></tr>
+                        <tr><th scope="row">Inicio: </th><td><%= @kontest.startdate.in_time_zone("Eastern Time (US & Canada)")  %></td></tr>
+                        <tr><th scope="row">Finalizacion: </th><td><%= @kontest.enddate.in_time_zone("Eastern Time (US & Canada)")  %></td></tr>
                      </table>
                   </div> 
                   <div class="col-sm-6">                     
                      <table class="table table-bordered">
-                        <tr><th scope="row">Codigo del Cliente: </th><td><%= @kontest.clientcode %></td></tr>
+                        <tr><th scope="row">Codigo del Kontest: </th><td><%= @kontest.kontestcode %></td></tr>
                         <tr><th scope="row">Cantidad de Ganadores: </th><td><%= @kontest.amountwinners %></td></tr>
                         <tr><th scope="row">Cantidad de Codigos: </th><td><%= @kontest.amountcodes %></td></tr>
                         <tr><th scope="row">Premio: </th><td><%= @kontest.award %></td></tr>
@@ -39,7 +39,7 @@
                               <tr>
                                  <th>Id</th>
                                  <th>Kontest Id</th>
-                                 <th>Codigo Cliente</th>
+                                 <th>Codigo Kontest</th>
                                  <th>Secuencia</th>
                                  <th>Ganador</th>
                                  <th>Id Usuario</th>
@@ -50,11 +50,16 @@
                                     <tr>
                                        <td><%= unicode.id %></td>
                                        <td><%= unicode.kontest_id %></td>
-                                       <td><%= unicode.clientcode %></td>
+                                       <td><%= unicode.kontestcode %></td>
                                        <td><%= unicode.secuence %></td>
                                        <td><%= unicode.winner %></td>
                                        <td><%= unicode.user_id %></td>
-                                       <td><%= unicode.registrationdate %></td>
+                                       <% if unicode.registrationdate %>
+                                          <td><%= unicode.registrationdate.in_time_zone("Eastern Time (US & Canada)")  %></td>
+                                       <% else %>
+                                          <td><%= unicode.registrationdate %></td>
+                                                
+                                       <% end %>
                                     </tr>           
                                  <% end %>
                               

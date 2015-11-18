@@ -7,8 +7,7 @@ class Admin::ClientsController < ApplicationController
 
   def create
    @client = Client.new client_params
-   @client.generateCode
-   
+      
    if @client.save
       redirect_to client_path(@client)
    else
