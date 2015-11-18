@@ -14,17 +14,36 @@
                <div class="row">
                   <div class="col-sm-6">                     
                      <table class="table table-bordered">
+                        
+                        <!-- Next lines count winners and registered -->
+                        <% total_winner = 0 %>
+                        <% total_registered = 0 %>
+                        <% total_codigos = 0 %>
+                           <% @kontest.unicodes.each do |unicode| %>
+                                 <% if unicode.user_id %>
+                                    <% total_registered += 1 %>
+                                    <% if unicode.winner %>
+                                       <% total_winner += 1 %>
+                                    <% end %>
+                                 <% end %>
+                                 <% total_codigos += 1 %>  
+                              <% end %>
+                        <!-- Below lines count winners and registered -->  
+
                         <tr><th scope="row">Cliente: </th><td><%= @kontest.clientname %></td></tr>
-                        <tr><th scope="row">Creado por: </th><td><%= @kontest.admin %></td></tr>                        
+                        <tr><th scope="row">Codigo del Kontest: </th><td><%= @kontest.kontestcode %></td></tr>
+                        <tr><th scope="row">Creado por: </th><td><%= @kontest.admin %></td></tr>
                         <tr><th scope="row">Inicio: </th><td><%= @kontest.startdate.in_time_zone("Eastern Time (US & Canada)")  %></td></tr>
                         <tr><th scope="row">Finalizacion: </th><td><%= @kontest.enddate.in_time_zone("Eastern Time (US & Canada)")  %></td></tr>
                      </table>
                   </div> 
                   <div class="col-sm-6">                     
                      <table class="table table-bordered">
-                        <tr><th scope="row">Codigo del Kontest: </th><td><%= @kontest.kontestcode %></td></tr>
-                        <tr><th scope="row">Cantidad de Ganadores: </th><td><%= @kontest.amountwinners %></td></tr>
-                        <tr><th scope="row">Cantidad de Codigos: </th><td><%= @kontest.amountcodes %></td></tr>
+                        
+                        <tr><th scope="row">Ganadores Disponibles: </th><td><%= @kontest.amountwinners %></td></tr>
+                        <tr><th scope="row">Usuarios Ganadores: </th><td><%= total_winner %></td></tr>
+                        <tr><th scope="row">Total Codigos: </th><td><%= total_codigos %></td></tr>
+                        <tr><th scope="row">Codigos Registrados: </th><td><%= total_registered %></td></tr>
                         <tr><th scope="row">Premio: </th><td><%= @kontest.award %></td></tr>
                      </table>
                   </div>

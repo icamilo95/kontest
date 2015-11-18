@@ -21,7 +21,6 @@
             <%= form_for [ @kontest] do |f| %>
                
                <%= f.label :clientname, "Nombre del Cliente" %> <%= f.text_field :admin, :value => @client.name, :disabled => true, :class => "form-control"  %>
-               <%= f.label :clientcode, "Codigo del Kontest" %> <%= f.text_field :admin, :value => @kontest.kontestcode, :disabled => true, :class => "form-control"  %>
                <%= f.label :admin, "Creado por: " %> <%= f.text_field :admin, :value => @admin.email, :disabled => true, :class => "form-control"  %>
                <%= f.label :amountwinners, "Cantidad de Ganadores" %> <%= f.text_field :amountwinners, :value => @kontest.amountwinners, :disabled => true, :class => "form-control"  %>
                <%= f.label :amountcodes, "Cantidad de Codigos" %> <%= f.text_field :amountcodes, :value => @kontest.amountcodes, :disabled => true, :class => "form-control"  %>

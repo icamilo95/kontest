@@ -43,19 +43,41 @@
                                  <th>Premio</th>
                                  <th>Fecha Inicio</th>
                                  <th>Fecha Fin</th>
-                                 <th>Ganadores</th>
-                                 <th>Codigos</th>
+                                 <th>Ganadores Disponibles</th>
+                                 <th>Total Codigos</th>
+                                 <th>Usuarios Ganadores</th>
+                                 <th>Codigos Registrados</th>
                               </tr>
                               <% if @kontests %>
+                                 <% total_winner = 0 %>
+                                 <% total_registered = 0 %>
+                                 <% total_codigos = 0 %>
                                  <% @kontests.each do |kontest| %>     
+                                 <!-- Next lines count winners and registered -->
+                                    <% kontest.unicodes.each do |unicode| %>
+                                          <% if unicode.user_id %>
+                                             <% total_registered += 1 %>
+                                             <% if unicode.winner %>
+                                                <% total_winner += 1 %>
+                                             <% end %>
+                                          <% end %>
+                                          <% total_codigos += 1 %>  
+                                       <% end %>
+                                 <!-- Below lines count winners and registered -->      
                                     <tr>
                                        <td><%= link_to kontest.id, kontest_path(kontest) %></td>
                                        <td><%= kontest.kontestcode %></td>
                                        <td><%= kontest.award %></td>
-                                       <td><%= kontest.startdate %></td>
-                                       <td><%= kontest.enddate %></td>
+                                       <td><%= kontest.startdate.in_time_zone("Eastern Time (US & Canada)") %></td>
+                                       <td><%= kontest.enddate.in_time_zone("Eastern Time (US & Canada)") %></td>
                                        <td><%= kontest.amountwinners %></td>
-                                       <td><%= kontest.amountcodes %></td>
+                                       <!-- <td><%= kontest.amountcodes %></td> -->
+                                       <td><%= total_codigos %></td>
+                                       <td><%= total_winner %></td>
+                                       <td><%= total_registered %></td>
+                                       <% total_winner = 0 %>
+                                       <% total_registered = 0 %>
+                                       <% total_codigos = 0 %>
                                     </tr>           
                                  <% end %>
                               <% end %>

@@ -14,7 +14,7 @@ class KontestsController < ApplicationController
   def new
    @kontest = Kontest.new
    @client = Client.find params[:client_id]
-   @admin = current_admin
+   @admin_email = current_admin.email
   end
 
   def create

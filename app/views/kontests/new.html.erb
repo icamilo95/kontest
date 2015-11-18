@@ -17,13 +17,13 @@
             <h3 class="panel-title">Crear Kontest</h3>
          </div>
          <div class="panel-body">
+            
             <%= form_for [:client, @kontest] do |f| %>
                
               <%= f.label :clientname, "Nombre del Cliente" %> <%= f.text_field :clientname, :value => @client.name, :readonly => true, :class => "form-control"  %>
-              <%= f.label :clientcode, "Codigo del Cliente" %> <%= f.text_field :clientcode, :value => @client.codigo, :readonly => true , :class => "form-control"  %>
-              <%= f.label :admin, "Creado por: " %> <%= f.text_field :admin, :value => @admin.email, :readonly => true , :class => "form-control"  %>
+              <%= f.label :admin, "Creado por: " %> <%= f.text_field :admin, :value => @admin_email, :readonly => true , :class => "form-control"  %>
               <%= f.label :amountwinners, "Cantidad de Ganadores" %> <%= f.select :amountwinners, (1..300) , :class => "form-control"  %>
-              <%= f.label :amountcodes, "Cantidad de Codigos" %> <%= f.select :amountcodes, [5,10,20,500,1500,3500,10000] , :class => "form-control"  %>
+              <%= f.label :amountcodes, "Cantidad de Codigos" %> <%= f.select :amountcodes, [5,10,20,100,500,1500,3500,10000] , :class => "form-control"  %>
 
               <%= f.label :award, "Descripcion del Premio" %> <%= f.text_field :award , :class => "form-control"  %>
               <br>

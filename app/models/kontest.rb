@@ -1,4 +1,5 @@
 class Kontest < ActiveRecord::Base
+   validates   :startdate, :enddate, :award, presence: true
    belongs_to :client
    has_many :unicodes, dependent: :destroy
 
@@ -17,3 +18,6 @@ class Kontest < ActiveRecord::Base
    end
 
 end
+
+
+
