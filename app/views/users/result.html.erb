@@ -11,10 +11,12 @@
             </div>
             <div class="panel-body">
                <% if flash[:message] == "1" %>
-                  <p>Ganaste</p>
+                  <p>Ganaste un: </p>
+                  <p><%= session[:award] %></p>
                   <%= link_to "Ir a Inicio", root_path, :class => "btn btn-default" %>
                <% elsif  flash[:message] == "2" %>
-                  <p>NO Ganaste, Sigue Intentando</p>
+                  <p>NO Ganaste, Sigue Intentando para ganar un: </p>
+                  <p>   <%= session[:award] %></p>
                   <%= link_to "Ingresar Otro Codigo", registercode_path, :class => "btn btn-default" %>   
                <% elsif  flash[:message] == "3" %>
                   <p>Codigo ya registrado</p>

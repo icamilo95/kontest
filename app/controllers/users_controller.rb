@@ -29,42 +29,47 @@ class UsersController < ApplicationController
       unicode = Unicode.where(secuence: kontestcode[1])[0]
    
       if unicode 
-         
-         if unicode.user_id == nil
+        if unicode.user_id == nil
+          # If code NOT registered yet
             unicode.user_id = current_user.id 
             unicode.registrationdate = Time.now 
             if unicode.save
                if unicode.winner
+                # If winner
+                  # @award = kontest.award
+                  session[:award] = kontest.award
                   flash[:message] = "1"      
-
                   redirect_to result_path(current_user)    
                else
+                # If NOT Winner
+                  session[:award] = kontest.award
                   flash[:message] = "2"      
                   redirect_to result_path(current_user) 
                end
-              
             else
+              # If does NOT save
                flash[:message] = "Error, por favor ingreasr codigo nuevamente"
                render :registercode            
             end    
-         else
+        else
+          # If code registered by user
             if unicode.user_id == current_user.id
                flash[:message] = "3"      
                redirect_to result_path(current_user)      
             else
+          # If code registered by another user    
                flash[:message] = "4"      
                redirect_to result_path(current_user)   
             end
-            
-         end
-
-         
+        end         
       else
+         # If wrong UNICODE
          flash[:message] = "5"      
          redirect_to result_path(current_user)
       end
 
    else
+      # If wrong Kontest Code
       flash[:message] = "6"
       redirect_to result_path(current_user)
    end
