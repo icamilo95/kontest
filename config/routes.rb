@@ -2,6 +2,14 @@ Rails.application.routes.draw do
  
   
 
+  namespace :admin do
+  get 'users/index'
+  end
+
+  namespace :admin do
+  get 'users/show'
+  end
+
   root to: "home#index"  
 
   # Admin Rails
@@ -10,7 +18,7 @@ Rails.application.routes.draw do
   # DEVISE
   devise_for :admins
 
-  namespace :admin do # Added this configuration so admin gos to admin/client when cresting a new client instead of going to clinet home page
+  namespace :admin do # Added this configuration so admin goes to admin/client when creating a new client instead of going to client home page
     resources :clients
     resources :users, only: [:index, :show]
   end

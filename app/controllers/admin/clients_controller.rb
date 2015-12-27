@@ -1,10 +1,7 @@
 class Admin::ClientsController < ApplicationController
     before_action :authenticate_admin!
 
-  def index
-   @clients = Client.all
-  end
-
+  
   def create
    @client = Client.new client_params
       
